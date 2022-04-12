@@ -3,15 +3,16 @@ name: Deploy
 on:
   push:
     branches:
-      - master
+      - master #nombre de la rama
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest #en linux
     steps:
       - uses: actions/checkout@v2 #serie de pasos ya creados
-      - uses: akhileshns/heroku-deploy@v3.12.12 #para poder conectarnos necesitamos 3 cosas
-        with: 
+      - uses: akhileshns/heroku-deploy@v3.12.12 #set de pasos por usuario
+        with:
+          #para poder conectarnos necesitamos 3 cosas
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
